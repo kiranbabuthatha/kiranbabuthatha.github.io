@@ -1,2 +1,0 @@
-# kiranbabuthatha.github.io
-KiranBabuThathaPortfolio
