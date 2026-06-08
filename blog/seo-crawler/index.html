@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- PRIMARY SEO META -->
+<title>Python SEO Crawler: Automate Technical Audits Without Screaming Frog | Kiran Babu</title>
+<meta name="description" content="A free, open-source Python SEO crawler that checks canonical tags, hreflang, meta data, broken links, and structured data. Built by Kiran Babu." />
+<meta name="keywords" content="Python SEO crawler, technical SEO audit, Screaming Frog alternative, open-source crawler, canonical tags, hreflang, broken links, structured data, JSON-LD, meta description audit, indexability" />
+<meta name="author" content="Kiran Babu Thatha" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://kiranbabuthatha.com/blog/seo-crawler/" />
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Python SEO Crawler: Automate Technical Audits Without Screaming Frog" />
+<meta property="og:description" content="A free, open-source Python SEO crawler that checks canonical tags, hreflang, meta data, broken links, and structured data. Built by Kiran Babu." />
+<meta property="og:url" content="https://kiranbabuthatha.com/blog/seo-crawler/" />
+<meta property="og:site_name" content="Kiran Babu Thatha" />
+<meta property="og:locale" content="en_US" />
+<meta property="article:author" content="Kiran Babu Thatha" />
+<meta property="article:published_time" content="2026-06-08" />
+
+<!-- TWITTER / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Python SEO Crawler: Automate Technical Audits Without Screaming Frog" />
+<meta name="twitter:description" content="A free, open-source Python SEO crawler for canonical tags, hreflang, meta data, broken links, and structured data." />
+
+<!-- FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../../styles.css">
+
+<!-- SCHEMA.ORG STRUCTURED DATA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://kiranbabuthatha.com/#person",
+      "name": "Kiran Babu Thatha",
+      "url": "https://kiranbabuthatha.com/",
+      "jobTitle": "Senior Product Analyst, SEO",
+      "address": { "@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE" },
+      "email": "kiranbabu.thatha@gmail.com",
+      "sameAs": ["https://www.linkedin.com/in/kiran-babu-thatha-0992b562/"]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://kiranbabuthatha.com/blog/seo-crawler/#post",
+      "headline": "Python SEO Crawler: Automate Technical Audits Without Screaming Frog",
+      "description": "A free, open-source Python SEO crawler that checks canonical tags, hreflang, meta data, broken links, and structured data. Built by Kiran Babu.",
+      "url": "https://kiranbabuthatha.com/blog/seo-crawler/",
+      "datePublished": "2026-06-08",
+      "dateModified": "2026-06-08",
+      "wordCount": 2400,
+      "author": { "@id": "https://kiranbabuthatha.com/#person" },
+      "publisher": { "@id": "https://kiranbabuthatha.com/#person" },
+      "mainEntityOfPage": "https://kiranbabuthatha.com/blog/seo-crawler/",
+      "keywords": "Python SEO crawler, technical SEO audit, Screaming Frog alternative, canonical tags, hreflang, broken links, structured data"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kiranbabuthatha.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kiranbabuthatha.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Python SEO Crawler", "item": "https://kiranbabuthatha.com/blog/seo-crawler/" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../../" class="nav-logo">Kiran<span>.</span> Babu Thatha</a>
+    <div class="nav-links">
+      <a href="../../#about">About</a>
+      <a href="../../#experience">Experience</a>
+      <a href="../../#impact">Impact</a>
+      <a href="../../seo/">SEO Services</a>
+      <a href="../" class="active">Blog</a>
+    </div>
+    <a href="../../#contact" class="nav-cta">Let's talk →</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="../../">Home</a>
+    <span class="sep">/</span>
+    <a href="../">Blog</a>
+    <span class="sep">/</span>
+    <span class="current">Python SEO Crawler</span>
+  </div>
+</div>
+
+<!-- ARTICLE HERO -->
+<header class="article-hero container">
+  <div class="article-eyebrow">Tutorial · SEO &amp; Python</div>
+  <h1 class="article-title">
+    A Python SEO crawler that automates technical audits — <span class="em">without Screaming Frog</span>.
+  </h1>
+  <p class="article-standfirst">
+    A free, open-source, scriptable crawler that points at any site and returns the signals you
+    actually audit on: <strong>canonical tags, hreflang, titles and meta descriptions, broken
+    internal links, and structured data</strong> — exported as clean CSV and JSON. This is a full
+    walkthrough of my open-source <strong>SEO Audit Crawler</strong>, from install to acting on the
+    output.
+  </p>
+  <div class="article-byline">
+    <span class="author">Kiran Babu Thatha</span>
+    <span class="sep">·</span>
+    <span>Jun 8, 2026</span>
+    <span class="sep">·</span>
+    <span>11 min read</span>
+    <span class="sep">·</span>
+    <span class="dot">●</span> <span>Senior Product Analyst, SEO</span>
+  </div>
+</header>
+
+<!-- ARTICLE BODY -->
+<div class="article-shell container">
+  <div class="article-layout">
+
+    <!-- TOC -->
+    <aside class="toc" aria-label="Table of contents">
+      <div class="toc-label">On this page</div>
+      <ol>
+        <li><a href="#intro">What it is &amp; why I built it</a></li>
+        <li><a href="#why-crawl">Why manual crawls still matter</a></li>
+        <li><a href="#install">How to install &amp; run</a></li>
+        <li><a href="#features">Features &amp; what it checks</a></li>
+        <li><a href="#examples">Usage examples</a></li>
+        <li><a href="#when">When to use this tool</a></li>
+        <li><a href="#links">Links &amp; attribution</a></li>
+      </ol>
+    </aside>
+
+    <!-- CONTENT -->
+    <article class="article-body">
+
+      <!-- 1. INTRODUCTION -->
+      <section id="intro" class="article-section">
+        <h2><span class="num">/01</span> What it is &amp; why I built it</h2>
+        <p>
+          <strong>SEO Audit Crawler</strong> is a small, domain-agnostic Python crawler that extracts
+          the signals you actually need for a technical SEO audit. You point it at a site — or feed it
+          a URL list or an XML sitemap — pick the <strong>User-Agent</strong> you want to crawl as, and
+          it returns a per-page <strong>CSV + JSON</strong> report plus a console summary of the most
+          common issues. Nothing is hardcoded to one site; it works on any domain.
+        </p>
+        <p>
+          I built it because the technical-audit market is dominated by a handful of excellent but
+          paid, GUI-bound tools. <strong>Screaming Frog</strong> is the standard, and it's great — but
+          the moment you want to run an audit on a schedule, diff two crawls in version control, plug
+          the output into a data pipeline, or simply hand a teammate a command they can run for free,
+          a desktop app with a licence and a render budget gets in the way.
+        </p>
+        <p>
+          The problem this solves is the gap between "I need this signal right now, in a script" and
+          "let me open a paid GUI and export a sheet." It's a <strong>free, scriptable,
+          Python-native alternative</strong> for the practitioner who already lives in the terminal:
+          the output is plain CSV and JSON you can diff, commit, and pipe; the whole thing is a single
+          command driven by flags; and there are no crawl credits, seats, or SaaS dependencies to
+          manage. When you need rendered SPA pages or Core Web Vitals you'll still reach for heavier
+          tooling — but for the bread-and-butter technical checks, this is the no-friction option.
+        </p>
+
+        <div class="callout callout-note">
+          <div class="callout-icon">i</div>
+          <div class="callout-body">
+            <span class="callout-title">Who this is for</span>
+            <p>
+              SEO practitioners, developers, and analysts who want repeatable, automatable technical
+              audits without a per-seat licence — and who are comfortable running a Python command.
+              If you've ever wished Screaming Frog had a clean CLI you could cron, this is that.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. WHY MANUAL CRAWLS STILL MATTER -->
+      <section id="why-crawl" class="article-section">
+        <h2><span class="num">/02</span> Why manual crawls still matter</h2>
+        <p>
+          It's tempting to think Google Search Console and analytics tell you everything. They don't —
+          and the gap is exactly where a crawler earns its keep.
+        </p>
+        <ul>
+          <li>
+            <strong>GSC and analytics are rear-view mirrors.</strong> They only show you pages Google
+            has <em>already</em> visited, indexed, and served impressions for. A crawler shows you what
+            Google <strong>will</strong> see on its <em>next</em> visit — the pages, redirects, and
+            tags as they exist right now, before they ever make it into a report.
+          </li>
+          <li>
+            <strong>Catch issues before they cost you rankings.</strong> Broken internal links, missing
+            or conflicting canonical tags, duplicate titles, and missing meta descriptions rarely
+            announce themselves. By the time a ranking drops and it surfaces in GSC, the damage is done.
+            A crawl flags all of these up front, while they're still cheap to fix.
+          </li>
+          <li>
+            <strong>Audit hreflang and structured data at scale.</strong> International tagging and
+            rich-result markup are easy to get subtly wrong — a missing <code>x-default</code>, a
+            non-reciprocal return link, an invalid language code, a JSON-LD type missing a required
+            property. Checking those by hand across hundreds of pages is infeasible; a crawler does it
+            in one pass.
+          </li>
+          <li>
+            <strong>Pre-launch QA for new pages and migrations.</strong> Before a new section ships or a
+            site moves, you want to confirm canonicals point where they should, redirects chain
+            correctly, and nothing is accidentally <code>noindex</code>. A crawl against staging (or the
+            new URLs) is the cheapest insurance you'll buy.
+          </li>
+          <li>
+            <strong>Scheduled crawls catch SEO regressions over time.</strong> Because the output is
+            plain CSV/JSON, you can run the same crawl on a cron and diff today's report against last
+            week's. A title that silently changed, a canonical that flipped, a page that started
+            returning 404 — regressions show up as a diff, not a mystery.
+          </li>
+          <li>
+            <strong>No third-party SaaS or crawl credits.</strong> The tool runs entirely on your
+            machine (or your CI). There are no per-URL credits to ration, no seat limits, and no
+            external service that has to be up for your audit to run.
+          </li>
+        </ul>
+
+        <div class="callout callout-tip">
+          <div class="callout-icon">★</div>
+          <div class="callout-body">
+            <span class="callout-title">Crawl as the bot that matters</span>
+            <p>
+              Some sites serve different markup, redirects, or blocks to Googlebot than to a desktop
+              browser. This crawler lets you pick the User-Agent — and it applies that agent to
+              <em>every</em> request, including <code>robots.txt</code>, so robots rules are evaluated
+              for that specific agent. Crawling as the bot you care about surfaces exactly the
+              differences a browser would hide from you.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. HOW TO INSTALL AND RUN -->
+      <section id="install" class="article-section">
+        <h2><span class="num">/03</span> How to install &amp; run</h2>
+        <p>
+          You'll need Python and Git installed locally. Clone the repository, then install the
+          dependencies — there are only three required packages.
+        </p>
+
+        <div class="code-wrap">
+          <div class="code-head"><span class="lang">bash</span> · terminal <button class="copy-btn" type="button">Copy</button></div>
+          <pre><code class="language-bash"># 1. Clone the repository
+git clone https://github.com/kiranbabuthatha/SEO-crawler.git
+cd SEO-crawler
+
+# 2. (Recommended) create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate          # macOS / Linux
+# .venv\Scripts\activate           # Windows (PowerShell)
+
+# 3. Install dependencies
+pip install -r requirements.txt</code></pre>
+        </div>
+
+        <p>
+          <code>requests</code>, <code>beautifulsoup4</code>, and <code>lxml</code> are all that's
+          required. To let the crawler accept Brotli-compressed responses, optionally install
+          <code>brotli</code>. It advertises only the compression it can actually decode, so this is
+          safe to skip:
+        </p>
+
+        <div class="code-wrap">
+          <div class="code-head"><span class="lang">bash</span> · terminal <button class="copy-btn" type="button">Copy</button></div>
+          <pre><code class="language-bash">pip install brotli   # optional — adds Brotli-compressed response support</code></pre>
+        </div>
+
+        <h3>Verify it works offline first</h3>
+        <p>
+          Before pointing it at a live site, run the bundled offline test suite — no network required.
+          You should see <code>ALL PASSED</code>:
+        </p>
+        <div class="code-wrap">
+          <div class="code-head"><span class="lang">bash</span> · terminal <button class="copy-btn" type="button">Copy</button></div>
+          <pre><code class="language-bash">python test_crawler.py        # expect: ALL PASSED</code></pre>
+        </div>
+
+        <h3>Run your first crawl</h3>
+        <p>
+          The crawler is a single command driven by flags. The simplest run crawls a site as Googlebot
+          mobile, following internal links up to depth 3, capped at 100 pages:
+        </p>
+        <div class="code-wrap">
+          <div class="code-head"><span class="lang">bash</span> · terminal <button class="copy-btn" type="button">Copy</button></div>
+          <pre><code class="language-bash">python seo_crawler.py https://www.example.com --ua googlebot-mobile --max-pages 100</code></pre>
+        </div>
+        <p>
+          When it finishes you'll have <code>seo_audit.csv</code> and <code>seo_audit.json</code> in
+          the working directory, plus a console summary of status codes and the most common issues.
+          Override the output prefix with <code>--out</code>.
+        </p>
+
+        <div class="callout callout-note">
+          <div class="callout-icon">i</div>
+          <div class="callout-body">
+            <span class="callout-title">Three ways to seed a crawl</span>
+            <p>
+              You can provide a positional start URL, a <code>--urls-file</code> (one URL per line), or
+              <code>--from-sitemap</code> (auto-discovered from <code>robots.txt</code> or a URL you
+              supply) — in any combination. All sources are merged and deduplicated before the crawl
+              begins.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. FEATURES AND WHAT IT CHECKS -->
+      <section id="features" class="article-section">
+        <h2><span class="num">/04</span> Features &amp; what it checks</h2>
+        <p>
+          For every page it fetches, the crawler records a deep set of signals. Here's what each one is
+          and why it matters for SEO.
+        </p>
+
+        <h3>Response &amp; indexability</h3>
+        <ul>
+          <li>
+            <strong>Response details</strong> — final URL, status code, redirect chain, response time,
+            and content type. <em>Why it matters:</em> redirect chains waste crawl budget and dilute
+            link equity; the final URL tells you where a request actually lands.
+          </li>
+          <li>
+            <strong>Indexability verdict</strong> — a single verdict that combines <code>meta
+            robots</code>, the <code>X-Robots-Tag</code> header, the HTTP status, and the canonical,
+            plus the <em>reason</em> a page is non-indexable. <em>Why it matters:</em> a page can be
+            silently excluded from Google by any one of these; one verdict tells you whether it can
+            rank at all, and why not.
+          </li>
+        </ul>
+
+        <h3>On-page &amp; content</h3>
+        <ul>
+          <li>
+            <strong>Title &amp; meta description</strong> — both their character length <em>and</em>
+            estimated SERP <strong>pixel width</strong>. <em>Why it matters:</em> Google truncates on
+            pixels, not characters, so a "55-character" title can still get cut off — pixel width is the
+            honest measure.
+          </li>
+          <li>
+            <strong>Word count &amp; text-to-HTML ratio</strong> — visible word count and how much of
+            the page is content vs. markup. <em>Why it matters:</em> a fast way to spot thin or
+            boilerplate-heavy pages.
+          </li>
+          <li>
+            <strong>Heading structure</strong> — full <code>H1</code>–<code>H6</code> counts plus a
+            document-order check that flags skipped levels (e.g. <code>H2</code> → <code>H4</code>) and
+            a first heading that isn't <code>H1</code>. <em>Why it matters:</em> a clean heading
+            outline helps both accessibility and how search engines parse page structure.
+          </li>
+        </ul>
+
+        <h3>Canonical, international &amp; links</h3>
+        <ul>
+          <li>
+            <strong>Canonical detection</strong> — read from <em>both</em> the <code>&lt;link&gt;</code>
+            tag and the HTTP <code>Link</code> header, with self-referencing detection and
+            conflicting/multiple-canonical flagging. With <code>--check-links</code> the canonical
+            target's HTTP status is validated too. <em>Why it matters:</em> conflicting canonicals are a
+            classic, hard-to-spot cause of the wrong URL being indexed.
+          </li>
+          <li>
+            <strong>Hreflang (international)</strong> — every annotation (language + URL) plus
+            validation: <code>x-default</code> presence, self-reference, malformed language codes, and
+            reciprocal return-links between crawled pages. <em>Why it matters:</em> hreflang only works
+            when return links are reciprocal and codes are valid; one broken link breaks the cluster.
+          </li>
+          <li>
+            <strong>Link analysis</strong> — internal, external, <code>nofollow</code>,
+            <code>sponsored</code>, and <code>ugc</code> counts, plus empty and generic anchor-text
+            ("click here") detection. With <code>--check-links</code>, every link is HEAD-checked for
+            broken (4xx/5xx) and redirecting targets. <em>Why it matters:</em> broken internal links
+            leak crawl budget and frustrate users; descriptive anchors pass clearer relevance signals.
+          </li>
+        </ul>
+
+        <h3>Media, social &amp; structured data</h3>
+        <ul>
+          <li>
+            <strong>Images</strong> — totals, missing <code>alt</code>, missing
+            <code>width</code>/<code>height</code> (a CLS risk), and lazy-loaded counts. <em>Why it
+            matters:</em> missing alt text hurts accessibility and image search; missing dimensions
+            cause layout shift that drags down Core Web Vitals.
+          </li>
+          <li>
+            <strong>Social tags</strong> — Open Graph and Twitter Card tags with completeness
+            validation (missing <code>og:image</code>, <code>og:url</code>, <code>twitter:card</code>,
+            etc.). <em>Why it matters:</em> these control how your pages look when shared, which affects
+            click-through from social.
+          </li>
+          <li>
+            <strong>Structured data</strong> — JSON-LD <code>@type</code> values parsed recursively,
+            with required-property validation for common rich-result types, plus Microdata
+            (<code>itemtype</code>) and RDFa detection. <em>Why it matters:</em> invalid or incomplete
+            markup means missed rich results; this catches it before Google does.
+          </li>
+        </ul>
+
+        <h3>Hygiene, headers &amp; site-level</h3>
+        <ul>
+          <li>
+            <strong>Page hygiene</strong> — <code>&lt;base href&gt;</code>, favicon,
+            <code>rel="next"/"prev"</code> pagination, a non-responsive-viewport check, and
+            mixed-content (insecure HTTP subresources on an HTTPS page) detection. <em>Why it
+            matters:</em> mixed content breaks the secure padlock and can block resources; a missing
+            responsive viewport hurts mobile ranking.
+          </li>
+          <li>
+            <strong>Security &amp; performance headers</strong> — HTTPS, HSTS, content-encoding, and
+            cache-control. <em>Why it matters:</em> these are baseline trust and performance signals.
+          </li>
+          <li>
+            <strong>Site-level duplicate clustering</strong> — duplicate <code>title</code>, meta
+            description, <code>H1</code>, and self-canonical clusters across the entire crawl. <em>Why
+            it matters:</em> these are the fingerprints of keyword cannibalisation and index bloat,
+            which you can only see by looking across the whole site at once.
+          </li>
+          <li>
+            <strong>Per-page issues list</strong> — a consolidated list of flagged problems (missing
+            title, thin content, multiple <code>H1</code>s, canonical conflicts, and everything above).
+            <em>Why it matters:</em> it's your prioritised to-do list, page by page.
+          </li>
+        </ul>
+
+        <h3>User-Agent flexibility</h3>
+        <p>
+          The chosen User-Agent is applied to every request, including <code>robots.txt</code>. Pick
+          the profile that matches the bot you're auditing for:
+        </p>
+        <div class="code-wrap">
+          <div class="code-head"><span class="lang">text</span> · --ua profiles <button class="copy-btn" type="button">Copy</button></div>
+          <pre><code class="language-plaintext">googlebot          Googlebot (desktop) — default
+googlebot-mobile   Googlebot (smartphone)
+bingbot            Bingbot
+chrome-desktop     Chrome on Windows
+chrome-mobile      Chrome on Android
+custom             Your own string via --ua-string</code></pre>
+        </div>
+
+        <div class="callout callout-warn">
+          <div class="callout-icon">!</div>
+          <div class="callout-body">
+            <span class="callout-title">Known limitations</span>
+            <p>
+              The crawler reads <strong>raw HTML — it does not execute JavaScript</strong>.
+              Server-rendered sites are fine, but client-rendered SPAs need a headless-browser layer
+              (e.g. Playwright). It also doesn't measure Core Web Vitals (LCP/INP/CLS), which need a
+              real browser — pair it with the PageSpeed Insights API for field data.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. USAGE EXAMPLES -->
+      <section id="examples" class="article-section">
+        <h2><span class="num">/05</span> Usage examples</h2>
+        <p>
+          A few real runs from the README, with notes on what the output means and how to act on it.
+        </p>
+
+        <h3>Audit exactly a list of URLs</h3>
+        <p>
+          When you want to audit a specific set of pages — not crawl outward from them — point
+          <code>--urls-file</code> at a text file and add <code>--list-only</code> to disable link
+          discovery. Here, 8 workers fetch in parallel:
+        </p>
+        <div class="code-wrap">
+          <div class="code-head"><span class="lang">bash</span> · terminal <button class="copy-btn" type="button">Copy</button></div>
+          <pre><code class="language-bash">python seo_crawler.py --urls-file examples/sample_urls.txt --list-only --workers 8</code></pre>
+        </div>
+        <p>
+          The input file is plain text, one URL per line — blank lines and <code>#</code> comments are
+          ignored:
+        </p>
+        <div class="code-wrap">
+          <div class="code-head"><span class="lang">text</span> · sample_urls.txt <button class="copy-btn" type="button">Copy</button></div>
+          <pre><code class="language-plaintext"># examples/sample_urls.txt
+https://www.example.com/
+https://www.example.com/pricing
+https://www.example.com/de/pricing</code></pre>
+        </div>
+        <p>
+          <strong>What to do with the output:</strong> open <code>seo_audit.csv</code> and sort by the
+          <code>parse_ok</code> column first — any <code>false</code> rows are fetch/decode failures to
+          fix before you trust the rest. Then scan the indexability verdict and issues columns for the
+          pages you care about.
+        </p>
+
+        <h3>Audit a whole sitemap with broken-link checks</h3>
+        <p>
+          Seed from the site's sitemap (auto-discovered via <code>robots.txt</code>), crawl every URL
+          (<code>--max-pages 0</code> = unlimited), and HEAD-check every link and canonical target:
+        </p>
+        <div class="code-wrap">
+          <div class="code-head"><span class="lang">bash</span> · terminal <button class="copy-btn" type="button">Copy</button></div>
+          <pre><code class="language-bash">python seo_crawler.py https://www.example.com --from-sitemap --list-only --max-pages 0 --check-links</code></pre>
+        </div>
+        <p>
+          <strong>What to do with the output:</strong> <code>--check-links</code> attributes every
+          broken (4xx/5xx) and redirecting target back to the pages that contain it — so the report
+          tells you not just <em>that</em> a link is broken but <em>where</em> to fix it. Triage 5xx and
+          404s first; then clean up redirecting internal links so they point straight at the final URL.
+        </p>
+
+        <h3>Crawl as a bot, following links to depth 3</h3>
+        <div class="code-wrap">
+          <div class="code-head"><span class="lang">bash</span> · terminal <button class="copy-btn" type="button">Copy</button></div>
+          <pre><code class="language-bash">python seo_crawler.py https://www.example.com --ua googlebot-mobile --max-pages 100 --depth 3</code></pre>
+        </div>
+        <p>
+          <strong>What the output means:</strong> the console summary tallies the status-code
+          distribution, how many pages are indexable, and the most common issues across the crawl —
+          your headline health check. Drop into <code>seo_audit.json</code> for the full nested detail
+          on any single page, or <code>seo_audit.csv</code> for a spreadsheet-friendly overview.
+        </p>
+
+        <div class="callout callout-tip">
+          <div class="callout-icon">★</div>
+          <div class="callout-body">
+            <span class="callout-title">Common gotcha: "everything reports as missing"</span>
+            <p>
+              That's almost always a compression-decode problem — the server sent Brotli/zstd your
+              environment can't decompress. The crawler avoids it by advertising only
+              <code>gzip</code>/<code>deflate</code> unless a decoder is installed, and flags a single
+              clear warning (with <code>parse_ok = false</code>) instead of a wall of false "missing
+              tag" issues. Install <code>brotli</code> if you want Brotli support.
+            </p>
+          </div>
+        </div>
+
+        <div class="callout callout-note">
+          <div class="callout-icon">i</div>
+          <div class="callout-body">
+            <span class="callout-title">Fast, without getting blocked</span>
+            <p>
+              Speed comes from concurrent workers (<code>--workers</code>, default 5); politeness keeps
+              you from getting blocked. Per-domain rate limiting spaces out requests by
+              <code>--delay</code> (default 0.3s, jittered ±30%), automatic retry honours
+              <code>Retry-After</code> and backs off on 429/5xx, and <code>robots.txt</code>
+              <code>Crawl-delay</code> is respected for the chosen User-Agent. The defaults are tuned to
+              be safe on sites you don't control — raise <code>--workers</code> freely on your own.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. WHEN TO USE THIS TOOL -->
+      <section id="when" class="article-section">
+        <h2><span class="num">/06</span> When to use this tool</h2>
+        <p>
+          This crawler is built for the recurring, scriptable technical checks — the work you'd
+          otherwise do by hand or rationing crawl credits for. Reach for it when you're doing:
+        </p>
+        <ul>
+          <li>
+            <strong>Routine site audits.</strong> Run a crawl across the site to surface broken links,
+            canonical conflicts, duplicate titles, missing meta descriptions, and thin content — then
+            work the per-page issues list as a prioritised backlog.
+          </li>
+          <li>
+            <strong>Pre-launch checks.</strong> Before new pages or a new section ships, crawl the new
+            URLs (or staging) to confirm canonicals, indexability, redirects, and structured data are
+            correct <em>before</em> they're live and indexed.
+          </li>
+          <li>
+            <strong>Migration QA.</strong> During a site move or redesign, crawl the URL set with
+            <code>--check-links</code> to verify redirects chain correctly, nothing is accidentally
+            <code>noindex</code>, and canonicals point at the new structure — the highest-risk moment
+            in a site's SEO life.
+          </li>
+          <li>
+            <strong>Ongoing monitoring.</strong> Because the output is plain CSV/JSON, schedule the same
+            crawl on a cron and diff successive runs to catch regressions — a flipped canonical, a title
+            that changed, a page that started 404-ing — as a diff rather than a ranking mystery.
+          </li>
+          <li>
+            <strong>International &amp; structured-data audits at scale.</strong> When you need to
+            validate hreflang reciprocity or JSON-LD across hundreds of pages, this does in one pass
+            what's infeasible by hand.
+          </li>
+        </ul>
+        <p>
+          When you instead need rendered SPA content, Core Web Vitals field data, or a point-and-click
+          GUI, pair it with (or fall back to) heavier tooling — those are deliberate non-goals here.
+        </p>
+      </section>
+
+      <!-- 7. LINKS AND ATTRIBUTION -->
+      <section id="links" class="article-section">
+        <h2><span class="num">/07</span> Links &amp; attribution</h2>
+        <p>
+          The SEO Audit Crawler is open source under the MIT licence. Clone it, run it against your own
+          site, and star the repo if it saves you time.
+        </p>
+
+        <div class="article-cta">
+          <h3>Grab the code and <span class="em">run your own audits</span></h3>
+          <p>
+            Free, scriptable, and Python-native. Point it at your site, pick a User-Agent, and get a
+            clean CSV + JSON report in one command.
+          </p>
+          <a href="https://github.com/kiranbabuthatha/SEO-crawler" target="_blank" rel="noopener" class="btn btn-primary">
+            View on GitHub <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <hr>
+        <p style="font-size:15px;color:var(--muted);">
+          Built by <strong>Kiran Babu</strong> — technical SEO + automation, Berlin.
+          More at <a href="https://kiranbabuthatha.com" target="_blank" rel="noopener">kiranbabuthatha.com</a>.
+          Want a crawl or data extract built around <em>your</em> site and reporting — JavaScript
+          rendering, scheduled runs, custom fields, log-file and Search Console joins? See the
+          <a href="../../seo/automation-services-python/">Python SEO automation services</a> or
+          <a href="../../#contact">get in touch</a>.
+        </p>
+      </section>
+
+    </article>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="contact-eyebrow">● Get in touch</div>
+    <h2 class="contact-headline">Let's build something<br>that <span class="em">ranks.</span></h2>
+    <a href="mailto:kiranbabu.thatha@gmail.com?subject=SEO%20Crawler" class="contact-email">kiranbabu.thatha@gmail.com</a>
+    <div class="contact-channels">
+      <a href="mailto:kiranbabu.thatha@gmail.com?subject=SEO%20Crawler" class="contact-channel"><span class="ico">✉</span> Email</a>
+      <a href="https://www.linkedin.com/in/kiran-babu-thatha-0992b562/" target="_blank" rel="noopener" class="contact-channel"><span class="ico">in</span> LinkedIn</a>
+      <a href="tel:+4917669150963" class="contact-channel"><span class="ico">☏</span> +49 176 6915 0963</a>
+      <span class="contact-channel"><span class="ico">⌖</span> Berlin · DE</span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>© 2026 Kiran Babu Thatha · <span class="accent">All rights reserved</span></div>
+      <div>Built in Berlin · <span class="accent">●</span> Booking 2026 engagements</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Syntax highlighting (highlight.js via CDN), themed in styles.css -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+<script>
+// Syntax highlighting
+if (window.hljs) {
+  document.querySelectorAll('pre code').forEach((el) => { try { hljs.highlightElement(el); } catch (e) {} });
+}
+
+// Copy-to-clipboard for code blocks
+document.querySelectorAll('.code-wrap .copy-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const code = btn.closest('.code-wrap').querySelector('code');
+    if (!code) return;
+    navigator.clipboard.writeText(code.innerText).then(() => {
+      const original = btn.textContent;
+      btn.textContent = 'Copied'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1600);
+    }).catch(() => {});
+  });
+});
+
+// Reveal-on-scroll (matches the rest of the site)
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.article-section, .contact').forEach((el) => {
+  el.classList.add('reveal'); io.observe(el);
+});
+</script>
+
+</body>
+</html>
