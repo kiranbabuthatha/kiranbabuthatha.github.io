@@ -9,6 +9,8 @@ SEO &amp; Data Strategy. Berlin.
 /                                                — Home portfolio
 /seo/                                            — Freelance services landing
 /seo/automation-services-python/                 — Python automation deep-dive
+/book/                                           — Book a consultation call
+/blog/                                           — Blog listing (posts nested below)
 ```
 
 ## Stack
