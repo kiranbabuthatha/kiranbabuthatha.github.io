@@ -85,7 +85,7 @@
       "image": "https://kiranbabuthatha.com/og-image.png",
       "url": "https://kiranbabuthatha.com/blog/automating-xml-sitemap-generation-with-python/",
       "datePublished": "2026-06-06",
-      "dateModified": "2026-06-06",
+      "dateModified": "2026-07-03",
       "wordCount": 1800,
       "author": { "@id": "https://kiranbabuthatha.com/#person" },
       "publisher": { "@id": "https://kiranbabuthatha.com/#person" },
@@ -116,7 +116,7 @@
       <a href="../../seo/">SEO Services</a>
       <a href="../" class="active">Blog</a>
     </div>
-    <a href="../../#contact" class="nav-cta">Let's talk →</a>
+    <a href="../../#contact" class="nav-cta">Let's talk <span class="arrow"></span></a>
   </div>
 </nav>
 
@@ -132,24 +132,24 @@
 
 <!-- ARTICLE HERO -->
 <header class="article-hero container">
-  <div class="article-eyebrow">Tutorial · SEO &amp; Python</div>
+  <div class="article-eyebrow">Tutorial: SEO &amp; Python</div>
   <h1 class="article-title">
     Automating XML sitemap generation <span class="em">with Python</span>.
   </h1>
   <p class="article-standfirst">
     Stop hand-editing <code style="font-family:var(--mono);font-size:0.85em;">sitemap.xml</code>.
     This is a complete, copy-paste walkthrough of my open-source
-    <strong>Sitemaps_Automation</strong> tool — generate clean, Google-compliant XML sitemaps from a
+    <strong>Sitemaps_Automation</strong> tool: generate clean, Google-compliant XML sitemaps from a
     URL list, then submit them to Google Search Console automatically via the API.
   </p>
   <div class="article-byline">
     <span class="author">Kiran Babu Thatha</span>
-    <span class="sep">·</span>
+    <span class="sep"></span>
     <span>Jun 6, 2026</span>
-    <span class="sep">·</span>
+    <span class="sep"></span>
     <span>9 min read</span>
-    <span class="sep">·</span>
-    <span class="dot">●</span> <span>Product Analyst and SEO Consultant</span>
+    <span class="sep"></span>
+    <span>Product Analyst and SEO Consultant</span>
   </div>
 </header>
 
@@ -179,26 +179,26 @@
         <h2><span class="num">/01</span> Why sitemaps matter</h2>
         <p>
           An <strong>XML sitemap</strong> is a structured file that lists the URLs on your site you
-          want search engines to know about — optionally with metadata like when each page last
+          want search engines to know about, optionally with metadata like when each page last
           changed. It isn't a ranking factor in itself; it's a <em>discovery</em> mechanism. It tells
           crawlers like Googlebot, "here is the canonical inventory of pages worth your time."
         </p>
         <p>
-          Search engines don't need a sitemap to crawl a small, well-linked site — they'll follow
+          Search engines don't need a sitemap to crawl a small, well-linked site; they'll follow
           links and find everything. Sitemaps earn their keep on the sites where link-following alone
           falls short:
         </p>
         <ul>
           <li><strong>Large sites</strong> where deep pages are many clicks from the homepage and risk being missed or crawled late.</li>
           <li><strong>Frequently updated sites</strong> where you want new and changed URLs discovered quickly, signalled via <code>&lt;lastmod&gt;</code>.</li>
-          <li><strong>Sites with weak internal linking</strong> — new pages, orphaned content, or sections with few inbound links.</li>
+          <li><strong>Sites with weak internal linking</strong>: new pages, orphaned content, or sections with few inbound links.</li>
           <li><strong>Sites with rich/media content</strong> where a sitemap is the cleanest way to surface URLs.</li>
         </ul>
         <p>
           Google is explicit that a sitemap improves <strong>crawl discovery and indexing
           efficiency</strong> for exactly these cases. For the full picture, read Google's official
           guidance:
-          <a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview" target="_blank" rel="noopener">Sitemaps overview · Google Search Central ↗</a>.
+          <a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview" target="_blank" rel="noopener">Sitemaps overview from Google Search Central</a>.
         </p>
 
         <div class="callout callout-note">
@@ -206,7 +206,7 @@
           <div class="callout-body">
             <span class="callout-title">Why automate it</span>
             <p>
-              Hand-maintaining a sitemap means it drifts the moment your URL inventory changes — stale
+              Hand-maintaining a sitemap means it drifts the moment your URL inventory changes: stale
               entries, missing new pages, forgotten resubmissions. Automating generation <em>and</em>
               submission turns a recurring manual chore into a pipeline you run on a schedule. That's
               the entire point of the tool below.
@@ -220,36 +220,36 @@
         <h2><span class="num">/02</span> What this project does</h2>
         <p>
           <strong>Sitemaps_Automation</strong> is a small, dependency-light Python toolkit that takes
-          a list of URLs and turns it into a complete, Google-compliant set of XML sitemaps — then
+          a list of URLs and turns it into a complete, Google-compliant set of XML sitemaps, then
           (optionally) submits that set to Google Search Console for you. It's organised as a single
           workflow script, <code>sitemap_workflow.py</code>, exposing three commands:
         </p>
         <ul>
-          <li><code>update</code> — read your URL list, build the XML sitemaps and a sitemap index, and write a run log.</li>
-          <li><code>validate</code> — sanity-check a generated sitemap index without touching the network.</li>
-          <li><code>submit</code> — push the generated sitemaps to your live Search Console property via the API.</li>
+          <li><code>update</code>: read your URL list, build the XML sitemaps and a sitemap index, and write a run log.</li>
+          <li><code>validate</code>: sanity-check a generated sitemap index without touching the network.</li>
+          <li><code>submit</code>: push the generated sitemaps to your live Search Console property via the API.</li>
         </ul>
         <p>
           The problem it solves: most teams either edit sitemaps by hand (slow, error-prone) or bolt
-          sitemap output onto their CMS and still resubmit manually. This decouples it — feed it a CSV
+          sitemap output onto their CMS and still resubmit manually. This decouples it: feed it a CSV
           or text file of URLs from <em>any</em> source and it produces clean output you can diff,
           validate, and submit reproducibly.
         </p>
         <p>What you get out of a run:</p>
         <ul>
           <li>Google-compliant XML sitemap files, split as needed.</li>
-          <li>A <code>sitemap_index.xml</code> that points at them — the single URL you submit to Search Console.</li>
+          <li>A <code>sitemap_index.xml</code> that points at them, the single URL you submit to Search Console.</li>
           <li>A <code>SITEMAP_LOG.md</code> that's appended with a summary on every run, so you have an audit trail.</li>
         </ul>
 
         <div class="callout callout-tip">
-          <div class="callout-icon">★</div>
+          <div class="callout-icon">+</div>
           <div class="callout-body">
             <span class="callout-title">Lightweight by design</span>
             <p>
               Per the README, <code>pandas</code> and <code>requests</code> cover the
-              generation steps (1–4). The Google client libraries are only pulled in for the Search
-              Console <code>submit</code> step — so if you only want to <em>generate</em> sitemaps,
+              generation steps (1 to 4). The Google client libraries are only pulled in for the Search
+              Console <code>submit</code> step, so if you only want to <em>generate</em> sitemaps,
               you can skip the heavier auth dependencies entirely.
             </p>
           </div>
@@ -265,7 +265,7 @@
         </p>
 
         <div class="code-wrap">
-          <div class="code-head"><span class="lang">bash</span> · terminal <button class="copy-btn" type="button">Copy</button></div>
+          <div class="code-head"><span class="lang">bash</span> / terminal <button class="copy-btn" type="button">Copy</button></div>
           <pre><code class="language-bash"># 1. Clone the repository
 git clone https://github.com/kiranbabuthatha/Sitemaps_Automation.git
 cd Sitemaps_Automation
@@ -291,9 +291,9 @@ pip install -r requirements.txt</code></pre>
             <span class="callout-title">Verify before you copy-paste</span>
             <p>
               The README does <strong>not</strong> pin a specific Python version. A modern Python 3
-              (3.9 or newer) is a safe assumption, but confirm against your own environment — and if
+              (3.9 or newer) is a safe assumption, but confirm against your own environment. If
               the repo adds a <code>.python-version</code> or a documented minimum, that takes
-              precedence. <em>(Kiran: drop the exact version here once you've confirmed it.)</em>
+              precedence.
             </p>
           </div>
         </div>
@@ -304,50 +304,50 @@ pip install -r requirements.txt</code></pre>
         <h2><span class="num">/04</span> Getting your credentials <span class="em">(client_secrets.json)</span></h2>
         <p>
           The generation steps need no credentials. <strong>Submitting</strong> to Search Console
-          does — you authenticate as yourself (OAuth) or as a service account. Here's the OAuth path,
+          does: you authenticate as yourself (OAuth) or as a service account. Here's the OAuth path,
           which produces the <code>client_secrets.json</code> the tool expects.
         </p>
 
-        <h3>Step 1 — Create a Google Cloud project</h3>
+        <h3>Step 1: Create a Google Cloud project</h3>
         <p>
           Go to the
-          <a href="https://console.cloud.google.com" target="_blank" rel="noopener">Google Cloud Console ↗</a>,
+          <a href="https://console.cloud.google.com" target="_blank" rel="noopener">Google Cloud Console</a>,
           open the project picker, and create a new project (or reuse an existing one). Give it a name
           you'll recognise, e.g. <code>sitemaps-automation</code>.
         </p>
 
-        <h3>Step 2 — Enable the Search Console API</h3>
+        <h3>Step 2: Enable the Search Console API</h3>
         <p>
-          In the same project, open <strong>APIs &amp; Services → Library</strong>, search for
+          In the same project, open <strong>APIs &amp; Services, then Library</strong>, search for
           <strong>Google Search Console API</strong>, and click <strong>Enable</strong>. This is what
           lets the script talk to Search Console programmatically.
         </p>
 
-        <h3>Step 3 — Configure the OAuth consent screen</h3>
+        <h3>Step 3: Configure the OAuth consent screen</h3>
         <p>
-          Under <strong>APIs &amp; Services → OAuth consent screen</strong>, choose
+          Under <strong>APIs &amp; Services, then OAuth consent screen</strong>, choose
           <strong>External</strong> (unless you're on Google Workspace and prefer Internal), fill in
           the app name and your support email, and add your Google account as a
-          <strong>Test user</strong>. You don't need to publish or verify the app for personal use —
+          <strong>Test user</strong>. You don't need to publish or verify the app for personal use;
           test-user access is enough to authorise the script.
         </p>
 
-        <h3>Step 4 — Create and download the OAuth client</h3>
+        <h3>Step 4: Create and download the OAuth client</h3>
         <p>
-          Go to <strong>APIs &amp; Services → Credentials → Create credentials → OAuth client ID</strong>.
+          Go to <strong>APIs &amp; Services, then Credentials, then Create credentials, then OAuth client ID</strong>.
           Choose <strong>Desktop app</strong> as the application type, create it, then click
           <strong>Download JSON</strong>. Rename the downloaded file to
           <code>client_secrets.json</code> and place it in the project root.
         </p>
         <p>
           Google's official walkthrough for authorising Search Console API requests is here:
-          <a href="https://developers.google.com/webmaster-tools/v1/how-tos/authorizing" target="_blank" rel="noopener">Authorizing requests · Search Console API ↗</a>.
+          <a href="https://developers.google.com/webmaster-tools/v1/how-tos/authorizing" target="_blank" rel="noopener">Authorizing requests, from the Search Console API docs</a>.
         </p>
 
         <div class="callout callout-warn">
           <div class="callout-icon">!</div>
           <div class="callout-body">
-            <span class="callout-title">Security — never commit your credentials</span>
+            <span class="callout-title">Security: never commit your credentials</span>
             <p>
               <code>client_secrets.json</code>, <code>service_account.json</code>, and the
               <code>gsc_token.json</code> generated during the OAuth flow are
@@ -359,8 +359,8 @@ pip install -r requirements.txt</code></pre>
         </div>
 
         <div class="code-wrap">
-          <div class="code-head"><span class="lang">gitignore</span> · .gitignore <button class="copy-btn" type="button">Copy</button></div>
-          <pre><code class="language-bash"># Google API credentials — keep these out of version control
+          <div class="code-head"><span class="lang">gitignore</span> / .gitignore <button class="copy-btn" type="button">Copy</button></div>
+          <pre><code class="language-bash"># Google API credentials, keep these out of version control
 client_secrets.json
 service_account.json
 gsc_token.json</code></pre>
@@ -385,12 +385,12 @@ gsc_token.json</code></pre>
           Point <code>--input</code> at either a CSV or a plain text file:
         </p>
         <ul>
-          <li><strong>CSV</strong> — a <code>url</code> column is required; an optional <code>lastmod</code> column adds last-modified dates.</li>
-          <li><strong>TXT</strong> — one URL per line; lines starting with <code>#</code> are ignored.</li>
+          <li><strong>CSV</strong>: a <code>url</code> column is required; an optional <code>lastmod</code> column adds last-modified dates.</li>
+          <li><strong>TXT</strong>: one URL per line; lines starting with <code>#</code> are ignored.</li>
         </ul>
 
         <div class="code-wrap">
-          <div class="code-head"><span class="lang">csv</span> · sample_urls.csv <button class="copy-btn" type="button">Copy</button></div>
+          <div class="code-head"><span class="lang">csv</span> / sample_urls.csv <button class="copy-btn" type="button">Copy</button></div>
           <pre><code class="language-plaintext">url,lastmod
 https://www.example.com/new-page,2026-05-27
 https://www.example.com/another-page,2026-05-30</code></pre>
@@ -398,7 +398,7 @@ https://www.example.com/another-page,2026-05-30</code></pre>
 
         <h3>Generate the sitemaps</h3>
         <div class="code-wrap">
-          <div class="code-head"><span class="lang">bash</span> · terminal <button class="copy-btn" type="button">Copy</button></div>
+          <div class="code-head"><span class="lang">bash</span> / terminal <button class="copy-btn" type="button">Copy</button></div>
           <pre><code class="language-bash">python sitemap_workflow.py update \
     --site https://www.example.com \
     --input examples/sample_urls.csv \
@@ -416,16 +416,16 @@ https://www.example.com/another-page,2026-05-30</code></pre>
 
         <h3>Validate the output</h3>
         <p>
-          Before submitting anything, sanity-check the index. This is offline — no network, no
+          Before submitting anything, sanity-check the index. This is offline, with no network and no
           credentials:
         </p>
         <div class="code-wrap">
-          <div class="code-head"><span class="lang">bash</span> · terminal <button class="copy-btn" type="button">Copy</button></div>
+          <div class="code-head"><span class="lang">bash</span> / terminal <button class="copy-btn" type="button">Copy</button></div>
           <pre><code class="language-bash">python sitemap_workflow.py validate ./sitemaps/sitemap_index.xml</code></pre>
         </div>
 
         <div class="callout callout-tip">
-          <div class="callout-icon">★</div>
+          <div class="callout-icon">+</div>
           <div class="callout-body">
             <span class="callout-title">Test without network access</span>
             <p>
@@ -445,28 +445,28 @@ https://www.example.com/another-page,2026-05-30</code></pre>
           front of Google.
         </p>
 
-        <h3>Option A — Manually, via the Search Console UI</h3>
+        <h3>Option A: Manually, via the Search Console UI</h3>
         <p>
           The no-code route. First host the sitemap files on your domain (e.g. so
           <code>https://www.example.com/sitemap_index.xml</code> resolves). Then:
         </p>
         <ul>
-          <li>Open <a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console ↗</a> and select your property.</li>
-          <li>Go to <strong>Indexing → Sitemaps</strong> in the left-hand menu.</li>
+          <li>Open <a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a> and select your property.</li>
+          <li>Go to <strong>Indexing, then Sitemaps</strong> in the left-hand menu.</li>
           <li>Under <strong>Add a new sitemap</strong>, enter <code>sitemap_index.xml</code> and click <strong>Submit</strong>.</li>
         </ul>
         <p>
           Google's help article walks through this and explains the status reporting:
-          <a href="https://support.google.com/webmasters/answer/7451001" target="_blank" rel="noopener">Build and submit a sitemap · Search Console Help ↗</a>.
+          <a href="https://support.google.com/webmasters/answer/7451001" target="_blank" rel="noopener">Build and submit a sitemap, from Search Console Help</a>.
         </p>
 
-        <h3>Option B — Automatically, via the API</h3>
+        <h3>Option B: Automatically, via the API</h3>
         <p>
           This is where the credentials from step 4 pay off. The <code>submit</code> command pushes
           your sitemaps to the live property programmatically:
         </p>
         <div class="code-wrap">
-          <div class="code-head"><span class="lang">bash</span> · terminal <button class="copy-btn" type="button">Copy</button></div>
+          <div class="code-head"><span class="lang">bash</span> / terminal <button class="copy-btn" type="button">Copy</button></div>
           <pre><code class="language-bash">python sitemap_workflow.py submit \
     --site https://www.example.com/ \
     --base-url https://www.example.com \
@@ -476,7 +476,7 @@ https://www.example.com/another-page,2026-05-30</code></pre>
         <p>
           The first run opens a browser to complete the OAuth consent and writes a reusable
           <code>gsc_token.json</code> so subsequent runs don't re-prompt. The submit step targets your
-          <em>live</em> property and is confirmation-gated by design — it asks before it acts.
+          <em>live</em> property and is confirmation-gated by design: it asks before it acts.
         </p>
 
         <div class="callout callout-note">
@@ -486,8 +486,8 @@ https://www.example.com/another-page,2026-05-30</code></pre>
             <p>
               For scheduled / CI automation where no human is present to confirm, pass
               <code>--yes</code> to skip the confirmation prompt. Combined with a service-account
-              credential (<code>--auth-mode</code> set accordingly), the whole generate → validate →
-              submit chain can run on a cron schedule.
+              credential (<code>--auth-mode</code> set accordingly), the whole generate, validate,
+              and submit chain can run on a cron schedule.
             </p>
           </div>
         </div>
@@ -498,13 +498,13 @@ https://www.example.com/another-page,2026-05-30</code></pre>
         <h2><span class="num">/07</span> Wrap-up</h2>
         <p>
           That's the full loop: a URL list goes in, and Google-compliant sitemaps come out, validated
-          and submitted to Search Console — manually through the UI when you want a quick one-off, or
+          and submitted to Search Console, manually through the UI when you want a quick one-off, or
           automatically through the API when you want it to run on its own. You've gone from
           hand-editing <code>sitemap.xml</code> to a reproducible pipeline with an audit log.
         </p>
         <p>
-          From here, the obvious next step is to wire the <code>update</code> → <code>validate</code> →
-          <code>submit</code> chain into a scheduled job, fed by whatever produces your URL inventory —
+          From here, the obvious next step is to wire the <code>update</code>, <code>validate</code>,
+          and <code>submit</code> chain into a scheduled job, fed by whatever produces your URL inventory:
           your CMS, a crawl, or a database export.
         </p>
 
@@ -515,14 +515,14 @@ https://www.example.com/another-page,2026-05-30</code></pre>
             star the repo if it saves you time.
           </p>
           <a href="https://github.com/kiranbabuthatha/Sitemaps_Automation" target="_blank" rel="noopener" class="btn btn-primary">
-            View on GitHub <span class="arrow">↗</span>
+            View on GitHub <span class="arrow arrow-ext"></span>
           </a>
         </div>
 
         <hr>
         <p style="font-size:15px;color:var(--muted);">
-          Building something in the same space — sitemap pipelines, URL curation, or SEO automation at
-          scale? I do this for a living. See the
+          Building something in the same space, such as sitemap pipelines, URL curation, or SEO
+          automation at scale? I do this for a living. See the
           <a href="../../seo/automation-services-python/">Python SEO automation services</a> or
           <a href="../../#contact">get in touch</a>.
         </p>
@@ -535,14 +535,14 @@ https://www.example.com/another-page,2026-05-30</code></pre>
 <!-- CONTACT -->
 <section id="contact" class="contact">
   <div class="container">
-    <div class="contact-eyebrow">● Get in touch</div>
+    <div class="contact-eyebrow"><span class="dot-ind"></span> Get in touch</div>
     <h2 class="contact-headline">Let's build something<br>that <span class="em">ranks.</span></h2>
     <a href="mailto:kiranbabu.thatha@gmail.com?subject=Sitemaps%20Automation" class="contact-email">kiranbabu.thatha@gmail.com</a>
     <div class="contact-channels">
-      <a href="mailto:kiranbabu.thatha@gmail.com?subject=Sitemaps%20Automation" class="contact-channel"><span class="ico">✉</span> Email</a>
-      <a href="https://www.linkedin.com/in/kiran-babu-thatha-0992b562/" target="_blank" rel="noopener" class="contact-channel"><span class="ico">in</span> LinkedIn</a>
-      <a href="tel:+4917669150963" class="contact-channel"><span class="ico">☏</span> +49 176 6915 0963</a>
-      <span class="contact-channel"><span class="ico">⌖</span> Berlin · DE</span>
+      <a href="mailto:kiranbabu.thatha@gmail.com?subject=Sitemaps%20Automation" class="contact-channel">Email</a>
+      <a href="https://www.linkedin.com/in/kiran-babu-thatha-0992b562/" target="_blank" rel="noopener" class="contact-channel">LinkedIn</a>
+      <a href="tel:+4917669150963" class="contact-channel">+49 176 6915 0963</a>
+      <span class="contact-channel">Berlin, Germany</span>
     </div>
   </div>
 </section>
@@ -550,8 +550,8 @@ https://www.example.com/another-page,2026-05-30</code></pre>
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
-      <div>© 2026 Kiran Babu Thatha · <span class="accent">All rights reserved</span></div>
-      <div>Built in Berlin · <span class="accent">●</span> Booking 2026 engagements</div>
+      <div>© 2026 Kiran Babu Thatha. <span class="accent">All rights reserved</span></div>
+      <div>Built in Berlin <span class="dot-ind"></span> Booking 2026 engagements</div>
     </div>
   </div>
 </footer>
