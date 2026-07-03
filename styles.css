@@ -604,6 +604,9 @@ section { padding: 120px 0; position: relative; }
 .service:hover .service-link span { transform: translateX(3px); }
 a.service { text-decoration: none; }
 a.service[aria-disabled="true"] .service-link { color: var(--muted-2); }
+.service-soon { opacity: 0.65; cursor: default; }
+.service-soon:hover { background: transparent; }
+.service-soon .service-link { color: var(--muted-2); }
 
 /* SERVICE-PAGE HERO (used by /automation/) */
 .service-page-hero {
