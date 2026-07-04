@@ -26,9 +26,63 @@
   --accent-deep: #115E59;   /* teal-800 — button hover                  */
   --accent-glow: rgba(15, 118, 110, 0.10);
 
+  /* Semantic tokens for surfaces that don't simply invert */
+  --accent-contrast: #FFFFFF;          /* text on accent fills           */
+  --surface-inverse: #0F172A;          /* dark panels — dark in BOTH themes */
+  --nav-veil: rgba(255, 255, 255, 0.82);
+  --marquee-veil: rgba(0, 0, 0, 0.015);
+  --page-glow: rgba(15, 118, 110, 0.05);
+  --code-frame: rgba(15, 23, 42, 0.85);
+  --tip-title: #0369A1;
+  --warn-title: #B91C1C;
+
   --serif: "Fraunces", "Times New Roman", serif;
   --sans: "Geist", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
   --mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
+}
+
+/* =====================================================================
+   THEME — dark values via light-dark(). With no data-theme attribute the
+   palette follows the browser preference (auto); theme.js sets
+   html[data-theme="light|dark"] to force one side via color-scheme.
+   Browsers without light-dark() support keep the light palette above.
+   ===================================================================== */
+@supports (color: light-dark(#fff, #000)) {
+  :root {
+    color-scheme: light dark;
+
+    /* Surfaces */
+    --bg: light-dark(#FFFFFF, #0B1220);
+    --bg-soft: light-dark(#F8FAFC, #0F192A);
+    --bg-card: light-dark(#F1F5F9, #182338);
+
+    /* Ink */
+    --ink: light-dark(#0F172A, #F1F5F9);
+    --ink-soft: light-dark(#1E293B, #CBD5E1);
+    --muted: light-dark(#64748B, #94A3B8);
+    --muted-2: light-dark(#94A3B8, #64748B);
+
+    /* Rules */
+    --line: light-dark(rgba(15, 23, 42, 0.10), rgba(241, 245, 249, 0.12));
+    --line-strong: light-dark(rgba(15, 23, 42, 0.20), rgba(241, 245, 249, 0.25));
+
+    /* Accent — brighter teal on dark surfaces for contrast */
+    --accent: light-dark(#0F766E, #2DD4BF);
+    --accent-deep: light-dark(#115E59, #5EEAD4);
+    --accent-glow: light-dark(rgba(15, 118, 110, 0.10), rgba(45, 212, 191, 0.10));
+
+    /* Semantic */
+    --accent-contrast: light-dark(#FFFFFF, #04211E);
+    --surface-inverse: light-dark(#0F172A, #060B16);
+    --nav-veil: light-dark(rgba(255, 255, 255, 0.82), rgba(11, 18, 32, 0.82));
+    --marquee-veil: light-dark(rgba(0, 0, 0, 0.015), rgba(255, 255, 255, 0.025));
+    --page-glow: light-dark(rgba(15, 118, 110, 0.05), rgba(45, 212, 191, 0.06));
+    --code-frame: light-dark(rgba(15, 23, 42, 0.85), rgba(241, 245, 249, 0.15));
+    --tip-title: light-dark(#0369A1, #7DD3FC);
+    --warn-title: light-dark(#B91C1C, #FCA5A5);
+  }
+  :root[data-theme="light"] { color-scheme: light; }
+  :root[data-theme="dark"] { color-scheme: dark; }
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,12 +101,12 @@ body {
   overflow-x: hidden;
   /* Subtle cool gradient — replaces the warm rust radials. */
   background-image:
-    radial-gradient(1200px 600px at 80% -10%, rgba(15, 118, 110, 0.05), transparent 60%);
+    radial-gradient(1200px 600px at 80% -10%, var(--page-glow), transparent 60%);
 }
 
 /* Paper-grain texture removed for the professional variant. */
 
-::selection { background: var(--accent); color: #FFFFFF; }
+::selection { background: var(--accent); color: var(--accent-contrast); }
 
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
@@ -63,7 +117,7 @@ img { max-width: 100%; display: block; }
 .nav {
   position: sticky; top: 0; z-index: 100;
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--nav-veil);
   border-bottom: 1px solid var(--line);
 }
 .nav-inner {
@@ -158,7 +212,7 @@ img { max-width: 100%; display: block; }
   transition: all 0.25s ease; cursor: pointer;
   border: 1px solid transparent; text-decoration: none;
 }
-.btn-primary { background: var(--accent); color: #FFFFFF; }
+.btn-primary { background: var(--accent); color: var(--accent-contrast); }
 .btn-primary:hover { background: var(--accent-deep); transform: translateY(-1px); }
 .btn-ghost { border-color: var(--line-strong); color: var(--ink); }
 .btn-ghost:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
@@ -184,7 +238,7 @@ img { max-width: 100%; display: block; }
 .marquee {
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
   padding: 26px 0; overflow: hidden;
-  background: rgba(0,0,0,0.015); margin-top: 80px;
+  background: var(--marquee-veil); margin-top: 80px;
 }
 .marquee-track {
   display: flex; gap: 56px; animation: scroll 40s linear infinite;
@@ -357,8 +411,8 @@ section { padding: 120px 0; position: relative; }
   letter-spacing: -0.01em; text-transform: none; margin-bottom: 2px;
 }
 
-/* SERVICES (DARK) — slate-900 surface with white text on top. */
-.services { background: var(--ink); color: #FFFFFF; border-top: none; }
+/* SERVICES (DARK) — inverse surface with white text; stays dark in both themes. */
+.services { background: var(--surface-inverse); color: #FFFFFF; border-top: none; }
 .services .section-tag { color: rgba(255,255,255,0.60); }
 .services .section-tag .num { color: #FFFFFF; }
 .services .section-tag::before { background: var(--accent); }
@@ -382,7 +436,7 @@ section { padding: 120px 0; position: relative; }
 }
 .services-banner span {
   font-family: var(--mono); font-size: 11px;
-  text-transform: uppercase; letter-spacing: 0.18em; color: var(--bg);
+  text-transform: uppercase; letter-spacing: 0.18em; color: #FFFFFF;
 }
 
 .services-grid {
@@ -548,6 +602,21 @@ section { padding: 120px 0; position: relative; }
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
+/* THEME TOGGLE — cycles auto / light / dark; icon reflects current mode. */
+.nav-actions { display: flex; align-items: center; gap: 14px; }
+.theme-toggle {
+  width: 36px; height: 36px; flex: none; padding: 0;
+  border: 1px solid var(--line-strong); border-radius: 50%;
+  background: none; color: var(--muted); cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+.theme-toggle svg { width: 15px; height: 15px; display: none; }
+:root:not([data-theme="light"]):not([data-theme="dark"]) .theme-toggle .i-auto { display: block; }
+:root[data-theme="light"] .theme-toggle .i-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .i-moon { display: block; }
+
 /* =====================================================================
    SEO SUB-PAGES — additional component classes used by /seo/ and
    /seo/automation-services-python/. Same palette as the rest of the
@@ -575,7 +644,7 @@ section { padding: 120px 0; position: relative; }
 
 /* DARK SECTION (used by /seo/ services + /automation/ proof) — mirrors .services */
 .dark {
-  background: var(--ink); color: #FFFFFF; border-top: none;
+  background: var(--surface-inverse); color: #FFFFFF; border-top: none;
 }
 .dark .section-tag { color: rgba(255,255,255,0.60); }
 .dark .section-tag .num { color: #FFFFFF; }
@@ -906,7 +975,7 @@ a.service[aria-disabled="true"] .service-link { color: var(--muted-2); }
 /* --- CODE BLOCKS (themed for the site palette) --- */
 .code-wrap {
   margin: 28px 0; border-radius: 8px; overflow: hidden;
-  border: 1px solid rgba(15, 23, 42, 0.85); background: var(--ink);
+  border: 1px solid var(--code-frame); background: var(--surface-inverse);
   box-shadow: 0 18px 40px -28px rgba(15, 23, 42, 0.6);
 }
 .code-head {
@@ -973,10 +1042,10 @@ a.service[aria-disabled="true"] .service-link { color: var(--muted-2); }
 .callout-note .callout-title { color: var(--accent-deep); }
 .callout-tip { border-left-color: #0EA5E9; background: rgba(14, 165, 233, 0.06); }
 .callout-tip .callout-icon { background: #0EA5E9; }
-.callout-tip .callout-title { color: #0369A1; }
+.callout-tip .callout-title { color: var(--tip-title); }
 .callout-warn { border-left-color: #DC2626; background: rgba(220, 38, 38, 0.05); }
 .callout-warn .callout-icon { background: #DC2626; }
-.callout-warn .callout-title { color: #B91C1C; }
+.callout-warn .callout-title { color: var(--warn-title); }
 
 /* --- ARTICLE CTA (repo button block) --- */
 .article-cta {
